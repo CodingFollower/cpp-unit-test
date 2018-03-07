@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <crtdbg.h>
 #include <Windows.h>
+#include <tchar.h>
 
 #ifdef _DEBUG
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
@@ -22,14 +23,14 @@
 #include <type_traits>
 #include <sstream>
 
-namespace CoreTest {
-	class Nocopyable {
+namespace CPPUnitest {
+	class nocopyable {
 	public:
-		Nocopyable() {}
-		virtual ~Nocopyable() {}
+		nocopyable() {}
+		virtual ~nocopyable() {}
 
 	protected:
-		Nocopyable(const Nocopyable&);
-		const Nocopyable &operator=(const Nocopyable &);
+		nocopyable(const nocopyable&);
+		const nocopyable &operator=(const nocopyable &);
 	};
 }

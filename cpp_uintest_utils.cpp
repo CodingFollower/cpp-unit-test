@@ -1,10 +1,10 @@
-#include "CoreTest/CoreTestUtils.hpp"
-#include "CoreTest/CoreTestResult.hpp"
+#include "cpp_uintest_utils.hpp"
+#include "cpp_uintest_result.hpp"
 
-namespace CoreTest {
+namespace CPPUnitest {
 	int TestExceptionHandle(EXCEPTION_POINTERS *except, TestResult &result, const char *file, int line) {
 		//PrintMessageFormat(stderr, true, "EXCEPTION<0x%x> AT <%s:%d>\r\n", except->ExceptionRecord->ExceptionCode, file, line);
-		CoreTest::TestFailedInfo fail(file, line);
+		CPPUnitest::TestFailedInfo fail(file, line);
 		fail.addDescription("Unexpect Exception<0x%x> Catched!", except->ExceptionRecord->ExceptionCode);
 		result.addFailed(fail);
 		return EXCEPTION_EXECUTE_HANDLER;

@@ -1,7 +1,7 @@
 #pragma once
-#include "CoreTest/CoreTestDefs.hpp"
+#include "cpp_uintest_def.hpp"
 
-namespace CoreTest {
+namespace CPPUnitest {
 	class TestFailedInfo {
 	public:
 		TestFailedInfo(const std::string &file, size_t line) {
@@ -17,7 +17,7 @@ namespace CoreTest {
 		std::list<std::string> desciption;
 	};
 
-	class TestResult : public Nocopyable {
+	class TestResult : public nocopyable {
 	public:
 		std::string testname;
 		std::string casename;

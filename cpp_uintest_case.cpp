@@ -1,7 +1,7 @@
-#include "CoreTest/CoreTestCase.hpp"
-#include "CoreTest/CoreTestUtils.hpp"
+#include "cpp_uintest_case.hpp"
+#include "cpp_uintest_utils.hpp"
 
-namespace CoreTest {
+namespace CPPUnitest {
 	static std::list<TestCaseInfo *> _allTests;
 
 	TestCaseInfo * TestCaseInfo::MakeTestInfo(const char *casename, const char *testname, TestCaseBase *testCase) {

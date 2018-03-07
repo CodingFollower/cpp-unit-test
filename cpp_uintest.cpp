@@ -1,6 +1,6 @@
-#include "CoreTest.hpp"
+#include "cpp_uintest.hpp"
 
-namespace CoreTest {
+namespace CPPUnitest {
 	static int RunAll(const TestCaseInfo::TestCaseList &tests) {
 		bool __ct_test_result = true;
 		for (auto iter = tests.begin(); iter != tests.end(); ++iter) {

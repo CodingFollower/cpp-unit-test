@@ -1,7 +1,7 @@
-#include "CoreTest/CoreTestResult.hpp"
-#include "CoreTest/CoreTestUtils.hpp"
+#include "cpp_uintest_result.hpp"
+#include "cpp_uintest_utils.hpp"
 
-namespace CoreTest {
+namespace CPPUnitest {
 	void TestFailedInfo::addDescription(const char *fmt, ...){
 		if (!fmt || !fmt[0]) {
 			return;

@@ -1,8 +1,8 @@
 #pragma once
-#include "CoreTest/CoreTestCase.hpp"
-#include "CoreTest/CoreTestUtils.hpp"
+#include "cpp_uintest_case.hpp"
+#include "cpp_uintest_utils.hpp"
 
-namespace CoreTest {
+namespace CPPUnitest {
 	void init();
 	int run();
 }
@@ -48,11 +48,11 @@ namespace CoreTest {
 #define CT_EXPECT_EQ(actual, expect) __CT_TEST_COND((actual) == (expect))
 #define CT_EXPECT_NE(actual, ne) __CT_TEST_COND((actual) != (ne))
 
-#define CT_EXPECT_FLOAT_EQ(actual, expect) __CT_TEST_COND(CoreTest::FloatEqual((actual), (expect)))
-#define CT_EXPECT_FLOAT_NE(actual, ne) __CT_TEST_COND(!CoreTest::FloatEqual((actual), (ne)))
+#define CT_EXPECT_FLOAT_EQ(actual, expect) __CT_TEST_COND(CPPUnitest::FloatEqual((actual), (expect)))
+#define CT_EXPECT_FLOAT_NE(actual, ne) __CT_TEST_COND(!CPPUnitest::FloatEqual((actual), (ne)))
 
-#define CT_EXPECT_STRING_EQ(actual, expect) __CT_TEST_COND(CoreTest::StringEqual((actual), (expect)))
-#define CT_EXPECT_STRING_NE(actual, ne) __CT_TEST_COND(!CoreTest::StringEqual((actual), (ne)))
+#define CT_EXPECT_STRING_EQ(actual, expect) __CT_TEST_COND(CPPUnitest::StringEqual((actual), (expect)))
+#define CT_EXPECT_STRING_NE(actual, ne) __CT_TEST_COND(!CPPUnitest::StringEqual((actual), (ne)))
 
 #define CT_EXPECT_TRUE(cond) __CT_TEST_COND((cond))
 #define CT_EXPECT_FALSE(cond) __CT_TEST_COND(!(cond))

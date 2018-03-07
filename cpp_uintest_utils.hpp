@@ -1,7 +1,7 @@
 #pragma once
-#include "CoreTest/CoreTestDefs.hpp"
+#include "cpp_uintest_def.hpp"
 
-namespace CoreTest {
+namespace CPPUnitest {
 	class TestResult;
 	int TestExceptionHandle(EXCEPTION_POINTERS *except, TestResult &result, const char *file, int line);
 
