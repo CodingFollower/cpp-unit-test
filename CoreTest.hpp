@@ -1,6 +1,5 @@
 #pragma once
 #include "CoreTest/CoreTestCase.hpp"
-#include "CoreTest/CoreTestOutput.hpp"
 #include "CoreTest/CoreTestUtils.hpp"
 
 namespace CoreTest {
@@ -10,14 +9,41 @@ namespace CoreTest {
 
 #define CT_TEST(case, test) __CT_TEST(case, test, #case, #test)
 
-#define __CT_TEST_COND(cond) do {\
-	strncpy(__ct_test_file, __FILE__, MAX_PATH);\
-	__ct_test_line = __LINE__;\
+//#define __CT_PRINT_FAILED CoreTest::PrintMessageFormat(stderr, true, "FAILED AT %s:%d\r\n", __CT_VAR_TEST_FILE, __CT_VAR_TEST_LINE)
+
+#define __CT_EXPECT_THROW(express, except, file, line) do {\
+	__CT_EXPECT_BODY_HEADER(file, line);\
+	try {\
+		express;\
+		__CT_VAR_TEST_FAILED_INFO.addDescription("Expect Throw Exception %s\r\n", #except);\
+		__CT_TEST_FAILED;\
+	}\
+	catch(const except &) {\
+	}\
+	catch(...) {\
+		__CT_VAR_TEST_FAILED_INFO.addDescription("Expect Throw Exception %s\r\n", #except);\
+		__CT_TEST_FAILED;\
+	}\
+} while (0)
+#define CT_EXPECT_THROW(express, except) __CT_EXPECT_THROW(express, except, __FILE__, __LINE__)
+
+#define __CT_TEST_COND__(cond, file, line) do {\
+	__CT_EXPECT_BODY_HEADER(file, line);\
 	if (!(cond)) {\
-		CoreTest::PrintMessageFormat(stderr, "FAILED AT %s:%d\r\n", __FILE__, __LINE__);\
-		__ct_test_result = false;\
+		__CT_TEST_FAILED;\
 	}\
 }while(0)
+#define __CT_TEST_COND(cond) __CT_TEST_COND__(cond, __FILE__, __LINE__)
+
+//#define __CT_EXPECT_EQ(actual, expect, comp, file, line) do {\
+//	__CT_EXPECT_BODY_HEADER(file, line);\
+//	auto __ct_actual = (actual);\
+//	auto __ct_expect = (expect);\
+//	if (!cmp(__ct_actual, __ct_expect)) {\
+//		CoreTest::PrintEqualFailedError(__ct_actual, __ct_expect, __CT_VAR_TEST_FILE, __CT_VAR_TEST_LINE);\
+//		__CT_SET_TEST_RESULT(false);\
+//	}\
+//}while(0)
 
 #define CT_EXPECT_EQ(actual, expect) __CT_TEST_COND((actual) == (expect))
 #define CT_EXPECT_NE(actual, ne) __CT_TEST_COND((actual) != (ne))

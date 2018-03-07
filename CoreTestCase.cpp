@@ -1,4 +1,5 @@
 #include "CoreTest/CoreTestCase.hpp"
+#include "CoreTest/CoreTestUtils.hpp"
 
 namespace CoreTest {
 	static std::list<TestCaseInfo *> _allTests;
