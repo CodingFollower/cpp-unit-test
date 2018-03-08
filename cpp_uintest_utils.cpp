@@ -18,6 +18,18 @@ namespace CPPUnitest {
 		return v1 == v2;
 	}
 
+	bool CStrEqual(const char *p1, const char *p2) {
+		if (p1 == p2) {
+			return true;
+		}
+
+		if (p1 == nullptr || p2 == nullptr) {
+			return false;
+		}
+
+		return StringEqual(p1, p2);
+	}
+
 	void PrintMessageFormat(FILE *target, bool err, const char *fmt, ...) {
 		if (!fmt || !fmt[0]) {
 			return;

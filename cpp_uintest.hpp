@@ -51,6 +51,8 @@ namespace CPPUnitest {
 #define CT_EXPECT_FLOAT_EQ(actual, expect) __CT_TEST_COND(CPPUnitest::FloatEqual((actual), (expect)))
 #define CT_EXPECT_FLOAT_NE(actual, ne) __CT_TEST_COND(!CPPUnitest::FloatEqual((actual), (ne)))
 
+#define CT_EXPECT_CSTR_EQ(actual, expect) __CT_TEST_COND(CPPUnitest::CStrEqual((actual), (expect)))
+
 #define CT_EXPECT_STRING_EQ(actual, expect) __CT_TEST_COND(CPPUnitest::StringEqual((actual), (expect)))
 #define CT_EXPECT_STRING_NE(actual, ne) __CT_TEST_COND(!CPPUnitest::StringEqual((actual), (ne)))
 

@@ -12,6 +12,7 @@ namespace CPPUnitest {
 
 	bool FloatEqual(long double v1, long double v2);
 	bool StringEqual(const std::string &v1, const std::string &v2);
+	bool CStrEqual(const char *p1, const char *p2);
 
 	WORD SetTextColor(WORD color);
 
