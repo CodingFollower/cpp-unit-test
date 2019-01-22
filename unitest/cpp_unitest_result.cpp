@@ -1,7 +1,7 @@
-#include "cpp_uintest_result.hpp"
-#include "cpp_uintest_utils.hpp"
+#include "cpp_unitest_result.hpp"
+#include "cpp_unitest_utils.hpp"
 
-namespace CPPUnitest {
+namespace cpp_unitest {
 	void TestFailedInfo::addDescription(const char *fmt, ...){
 		if (!fmt || !fmt[0]) {
 			return;

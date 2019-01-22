@@ -1,8 +1,8 @@
 #pragma once
-#include "cpp_uintest_def.hpp"
-#include "cpp_uintest_result.hpp"
+#include "cpp_unitest_def.hpp"
+#include "cpp_unitest_result.hpp"
 
-namespace CPPUnitest {
+namespace cpp_unitest {
 	class TestCaseBase : public nocopyable {
 	public:
 		virtual void RunTestCase(TestResult &) const = 0;
@@ -23,6 +23,7 @@ namespace CPPUnitest {
 
 		typedef std::list<TestCaseInfo *> TestCaseList;
 		static TestCaseList & getAllTestCase();
+		static void clearTests();
 	};
 }
 
@@ -34,37 +35,37 @@ namespace CPPUnitest {
 #define __CT_VAR_TEST_FAILED_INFO __ct_test_failed_info
 
 #define __CT_TEST(case, test, casename, testname) \
-class __CT_TEST_CASE_CLASS_NAME(case, test) : public CPPUnitest::TestCaseBase {\
+class __CT_TEST_CASE_CLASS_NAME(case, test) : public cpp_unitest::TestCaseBase {\
 public:\
 	__CT_TEST_CASE_CLASS_NAME(case, test)() {}\
 	\
-	static CPPUnitest::TestCaseInfo *_testInfo; \
+	static cpp_unitest::TestCaseInfo *_testInfo; \
 	\
-	void __TestCaseBody(CPPUnitest::TestResult &result, char file[__CT_VAR_TEST_FILE_SIZE], int &line) const {\
+	void __TestCaseBody(cpp_unitest::TestResult &result, char file[__CT_VAR_TEST_FILE_SIZE], int &line) const {\
 		__try {\
 			TestCaseBody(result, file, line);\
 		}\
-		__except(CPPUnitest::TestExceptionHandle(GetExceptionInformation(), result, file, line)) {\
+		__except(cpp_unitest::TestExceptionHandle(GetExceptionInformation(), result, file, line)) {\
 		}\
 	}\
 	\
-	void TestCaseBody(CPPUnitest::TestResult &__CT_VAR_TEST_RESULT, char __CT_VAR_TEST_FILE[__CT_VAR_TEST_FILE_SIZE], int &__CT_VAR_TEST_LINE) const;\
+	void TestCaseBody(cpp_unitest::TestResult &__CT_VAR_TEST_RESULT, char __CT_VAR_TEST_FILE[__CT_VAR_TEST_FILE_SIZE], int &__CT_VAR_TEST_LINE) const;\
 	\
-	void RunTestCase(CPPUnitest::TestResult &result) const override {\
+	void RunTestCase(cpp_unitest::TestResult &result) const override {\
 		char file[__CT_VAR_TEST_FILE_SIZE] = {0};\
 		int line = 0;\
 		__TestCaseBody(result, file, line);\
 	}\
 };\
 \
-CPPUnitest::TestCaseInfo *__CT_TEST_CASE_CLASS_NAME(case, test)::_testInfo = \
-	CPPUnitest::TestCaseInfo::MakeTestInfo(casename, testname, new __CT_TEST_CASE_CLASS_NAME(case, test));\
+cpp_unitest::TestCaseInfo *__CT_TEST_CASE_CLASS_NAME(case, test)::_testInfo = \
+	cpp_unitest::TestCaseInfo::MakeTestInfo(casename, testname, new __CT_TEST_CASE_CLASS_NAME(case, test)());\
 \
-void __CT_TEST_CASE_CLASS_NAME(case, test)::TestCaseBody(CPPUnitest::TestResult &__CT_VAR_TEST_RESULT, char __CT_VAR_TEST_FILE[__CT_VAR_TEST_FILE_SIZE], int &__CT_VAR_TEST_LINE) const
+void __CT_TEST_CASE_CLASS_NAME(case, test)::TestCaseBody(cpp_unitest::TestResult &__CT_VAR_TEST_RESULT, char __CT_VAR_TEST_FILE[__CT_VAR_TEST_FILE_SIZE], int &__CT_VAR_TEST_LINE) const
 
 #define __CT_EXPECT_BODY_HEADER(file, line) \
-	CPPUnitest::StringCopy(__CT_VAR_TEST_FILE, file, __CT_VAR_TEST_FILE_SIZE - 1);\
+	cpp_unitest::StringCopy(__CT_VAR_TEST_FILE, file, __CT_VAR_TEST_FILE_SIZE - 1);\
 	__CT_VAR_TEST_LINE = line;\
-	CPPUnitest::TestFailedInfo __CT_VAR_TEST_FAILED_INFO(__CT_VAR_TEST_FILE, __CT_VAR_TEST_LINE)\
+	cpp_unitest::TestFailedInfo __CT_VAR_TEST_FAILED_INFO(__CT_VAR_TEST_FILE, __CT_VAR_TEST_LINE)\
 
 #define __CT_TEST_FAILED __CT_VAR_TEST_RESULT.addFailed(__CT_VAR_TEST_FAILED_INFO)

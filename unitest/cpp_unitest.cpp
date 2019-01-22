@@ -1,6 +1,6 @@
-#include "cpp_uintest.hpp"
+#include "cpp_unitest.hpp"
 
-namespace CPPUnitest {
+namespace cpp_unitest {
 	static int RunAll(const TestCaseInfo::TestCaseList &tests) {
 		bool __ct_test_result = true;
 		for (auto iter = tests.begin(); iter != tests.end(); ++iter) {
@@ -42,6 +42,7 @@ namespace CPPUnitest {
 		char ch;
 		std::cin.get(ch);
 
+		TestCaseInfo::clearTests();
 		return ret;
 	}
 }

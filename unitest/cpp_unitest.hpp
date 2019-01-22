@@ -1,8 +1,8 @@
 #pragma once
-#include "cpp_uintest_case.hpp"
-#include "cpp_uintest_utils.hpp"
+#include "cpp_unitest_case.hpp"
+#include "cpp_unitest_utils.hpp"
 
-namespace CPPUnitest {
+namespace cpp_unitest {
 	void init();
 	int run();
 }
@@ -48,13 +48,13 @@ namespace CPPUnitest {
 #define CT_EXPECT_EQ(actual, expect) __CT_TEST_COND((actual) == (expect))
 #define CT_EXPECT_NE(actual, ne) __CT_TEST_COND((actual) != (ne))
 
-#define CT_EXPECT_FLOAT_EQ(actual, expect) __CT_TEST_COND(CPPUnitest::FloatEqual((actual), (expect)))
-#define CT_EXPECT_FLOAT_NE(actual, ne) __CT_TEST_COND(!CPPUnitest::FloatEqual((actual), (ne)))
+#define CT_EXPECT_FLOAT_EQ(actual, expect) __CT_TEST_COND(cpp_unitest::FloatEqual((actual), (expect)))
+#define CT_EXPECT_FLOAT_NE(actual, ne) __CT_TEST_COND(!cpp_unitest::FloatEqual((actual), (ne)))
 
-#define CT_EXPECT_CSTR_EQ(actual, expect) __CT_TEST_COND(CPPUnitest::CStrEqual((actual), (expect)))
+#define CT_EXPECT_CSTR_EQ(actual, expect) __CT_TEST_COND(cpp_unitest::CStrEqual((actual), (expect)))
 
-#define CT_EXPECT_STRING_EQ(actual, expect) __CT_TEST_COND(CPPUnitest::StringEqual((actual), (expect)))
-#define CT_EXPECT_STRING_NE(actual, ne) __CT_TEST_COND(!CPPUnitest::StringEqual((actual), (ne)))
+#define CT_EXPECT_STRING_EQ(actual, expect) __CT_TEST_COND(cpp_unitest::StringEqual((actual), (expect)))
+#define CT_EXPECT_STRING_NE(actual, ne) __CT_TEST_COND(!cpp_unitest::StringEqual((actual), (ne)))
 
 #define CT_EXPECT_TRUE(cond) __CT_TEST_COND((cond))
 #define CT_EXPECT_FALSE(cond) __CT_TEST_COND(!(cond))

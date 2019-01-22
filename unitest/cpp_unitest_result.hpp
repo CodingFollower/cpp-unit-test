@@ -1,7 +1,7 @@
 #pragma once
-#include "cpp_uintest_def.hpp"
+#include "cpp_unitest_def.hpp"
 
-namespace CPPUnitest {
+namespace cpp_unitest {
 	class TestFailedInfo {
 	public:
 		TestFailedInfo(const std::string &file, size_t line) {

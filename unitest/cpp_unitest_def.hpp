@@ -23,7 +23,7 @@
 #include <type_traits>
 #include <sstream>
 
-namespace CPPUnitest {
+namespace cpp_unitest {
 	class nocopyable {
 	public:
 		nocopyable() {}
