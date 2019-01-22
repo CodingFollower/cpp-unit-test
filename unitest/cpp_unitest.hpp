@@ -58,3 +58,6 @@ namespace cpp_unitest {
 
 #define CT_EXPECT_TRUE(cond) __CT_TEST_COND((cond))
 #define CT_EXPECT_FALSE(cond) __CT_TEST_COND(!(cond))
+
+#define CT_EXPECT_NULL(ptr) CT_EXPECT_FALSE(((void *)(ptr)))
+#define CT_EXPECT_NOT_NULL(ptr) CT_EXPECT_TRUE(((void *)(ptr)))
