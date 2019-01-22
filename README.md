@@ -1,2 +1,2 @@
-# CoreTest
-Cpp Unit Test
+# cpp unit test
+Cpp Unit Test, see example
