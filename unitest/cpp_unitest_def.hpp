@@ -11,7 +11,10 @@
 #include <tchar.h>
 
 #ifdef _DEBUG
-#define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#define CPP_NEW new(_NORMAL_BLOCK, __FILE__, __LINE__)
+
+#else
+#define CPP_NEW new
 #endif
 
 #endif
