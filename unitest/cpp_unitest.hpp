@@ -46,7 +46,7 @@ namespace cpp_unitest {
 //}while(0)
 
 #define CT_EXPECT_EQ(actual, expect) __CT_TEST_COND((actual) == (expect))
-#define CT_EXPECT_NE(actual, ne) __CT_TEST_COND((actual) != (ne))
+#define CT_EXPECT_NE(actual, ne) __CT_TEST_COND(!((actual) == (ne)))
 
 #define CT_EXPECT_FLOAT_EQ(actual, expect) __CT_TEST_COND(cpp_unitest::FloatEqual((actual), (expect)))
 #define CT_EXPECT_FLOAT_NE(actual, ne) __CT_TEST_COND(!cpp_unitest::FloatEqual((actual), (ne)))
